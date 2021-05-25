@@ -1,0 +1,18 @@
+<p>
+  <strong>Name:</strong>
+  <em><%= @user.name %></em>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <em><%= @user.email %></em>
+</p>
+
+<p>
+  <strong>Events:</strong>
+  <em>Coming soon...</em>
+</p>
+
+<% if current_user == @user %>
+  <td><%= link_to 'Edit', edit_user_registration_path %></td>
+<% end %>

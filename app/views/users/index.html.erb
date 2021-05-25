@@ -11,8 +11,12 @@
       <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td>Coming soon...</td>
-      <% if current_user == user %>
-        <td><%= link_to 'Edit', edit_user_registration_path %></td>
+      <td>
+      <%= link_to 'Details', user_path(id: user.id) %>
+      <% if current_user == user %>                
+          <%= link_to 'Edit', edit_user_registration_path %>                  
       <% end %>
+      </td>
+    </tr>
   <% end %>
 </table>
