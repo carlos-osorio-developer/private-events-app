@@ -1,14 +1,18 @@
 <h1>Users</h1>
 <table>
-  <tr>    
+  <tr>
+    <th>User</th>
     <th>Email</th> 
-    <th>Events</th>   
+    <th>Events</th>
+    <th>Options</th>
   </tr>
   <% @users.each do |user| %>
-    <tr>      
+    <tr>
+      <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td>Coming soon...</td>
+      <% if current_user == user %>
+        <td><%= link_to 'Edit', edit_user_registration_path %></td>
+      <% end %>
   <% end %>
 </table>
-<%= link_to 'Register', new_user_registration_path %>
-<%= link_to 'Log in', new_user_session_path %>
