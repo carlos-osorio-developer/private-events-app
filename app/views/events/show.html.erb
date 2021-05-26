@@ -8,4 +8,13 @@
   <em><%= @event.info %></em>
 </p>
 
+<p>
+  <strong>Attendees:</strong>
+  <ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= link_to attendee.name, attendee %></li>
+  <% end %>
+
+</p>
+
 <%= link_to 'Events', events_path %>
