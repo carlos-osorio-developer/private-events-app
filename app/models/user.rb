@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   has_many :events, :foreign_key => "creator_id", dependent: :destroy
+  has_many :attendings, foreign_key: :attendee_id
+  has_many :attended_events, through: :attendings 
 
   attr_accessor :login
   
