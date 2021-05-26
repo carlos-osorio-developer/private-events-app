@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:login]
 
+  validates :name, presence: true, uniqueness: true
+
   attr_accessor :login
   
   before_validation do
