@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show]
+  resources :events, only: [:index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "users#index"
+  root to: "events#index"
 end
