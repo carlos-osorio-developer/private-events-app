@@ -9,12 +9,21 @@
 </p>
 
 <p>
-  <strong>Events:</strong>
+  <strong>Hosted events:</strong>
   <ul>
   <% @user.events.each do |event| %>
-    <li><%= event.name %></li>
+    <li><%= link_to event.name, event %></li>
   <% end %>
+  </ul>
+</p>
 
+<p>
+  <strong>Attended events:</strong>
+  <ul>
+  <% @user.attended_events.each do |attending| %>
+    <li><%= link_to attending.name, attending %></li>
+  <% end %>
+  </ul>
 </p>
 
 <% if current_user == @user %>
