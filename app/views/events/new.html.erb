@@ -1,0 +1,32 @@
+<h2>New event</h2>
+
+<%= form_with model: @event do |form| %>
+    
+    <div>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+      <% @event.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+        <%= form.label :info, 'Description' %><br>
+        <%= form.text_field :info %>
+        <% @event.errors.full_messages_for(:info).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+      <%= form.label :date %><br>
+      <%= form.date_field :date %>
+      <% @event.errors.full_messages_for(:date).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+  <div>
+    <%= form.submit "Sign up" %>
+  </div>
+<% end %>
