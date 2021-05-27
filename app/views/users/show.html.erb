@@ -19,9 +19,17 @@
 
 <p>
   <strong>Attended events:</strong>
+  <br><br>
+  <span>Past events</span>
   <ul>
-  <% @user.attended_events.each do |attending| %>
-    <li><%= link_to attending.name, attending %></li>
+  <% @user.attended_events.where("date < '#{Time.now}'").each do |past_event| %>    
+    <li><%= link_to past_event.name, past_event %></li>
+  <% end %>
+  </ul>
+  <span>Future events</span>
+  <ul>
+  <% @user.attended_events.where("date >= '#{Time.now}'").each do |future_event| %>    
+    <li><%= link_to future_event.name, future_event %></li>
   <% end %>
   </ul>
 </p>
