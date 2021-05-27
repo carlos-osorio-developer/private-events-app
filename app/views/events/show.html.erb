@@ -17,4 +17,6 @@
 
 </p>
 
-<%= link_to 'Attend to this event', attend_attending_path, method: :post %>
+<% if current_user %>
+  <%= link_to 'Attend to this event', attend_attending_path, method: :post %>
+<% end %>
