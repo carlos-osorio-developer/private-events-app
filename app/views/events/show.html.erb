@@ -12,11 +12,14 @@
   <strong>Attendees:</strong>
   <ul>
   <% @event.attendees.each do |attendee| %>
-    <li><%= link_to attendee.name, attendee %></li>
+    <li><%= link_to "Guest: #{attendee.name}", attendee %></li>
   <% end %>
+  </ul>
 
 </p>
 
-<% if current_user %>
-  <%= link_to 'Attend to this event', attend_attending_path, method: :post %>
-<% end %>
+<div class="attend-link">
+  <% if current_user %>
+    <%= link_to 'Attend to this event', attend_attending_path, method: :post %>
+  <% end %>
+</div>
