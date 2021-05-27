@@ -5,7 +5,7 @@ class AttendingsController < ApplicationController
     if record.save
       redirect_to @event
     else
-      redirect_to @event, notice: "User already attending"
+      redirect_to @event, notice: 'User already attending'
     end
   end
 end
