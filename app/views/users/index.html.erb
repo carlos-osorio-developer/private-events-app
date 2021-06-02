@@ -1,0 +1,22 @@
+<h1>Users</h1>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Email</th> 
+    <th>Events</th>
+    <th>Options</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td>Coming soon...</td>
+      <td>
+      <%= link_to 'Details', user_path(id: user.id) %>
+      <% if current_user == user %>                
+          <%= link_to 'Edit', edit_user_registration_path %>                  
+      <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

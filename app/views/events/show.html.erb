@@ -1,0 +1,25 @@
+<p>
+  <strong>Name:</strong>
+  <em><%= @event.name %></em>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <em><%= @event.info %></em>
+</p>
+
+<p>
+  <strong>Attendees:</strong>
+  <ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= link_to "Guest: #{attendee.name}", attendee %></li>
+  <% end %>
+  </ul>
+
+</p>
+
+<div class="attend-link">
+  <% if current_user %>
+    <%= link_to 'Attend to this event', attend_attending_path, method: :post %>
+  <% end %>
+</div>
